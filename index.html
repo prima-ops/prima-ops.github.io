@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#DC2626" />
+  <title>P.R.I.M.A. — Praorder, Registration, Installation & Monitoring Application</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #F8FAFC; font-family: system-ui, -apple-system, sans-serif; }
+    #loader {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      background: #F8FAFC; color: #334155; font-size: 13px; font-weight: 600; z-index: 10;
+      transition: opacity 0.25s ease;
+    }
+    .spinner {
+      width: 28px; height: 28px; border: 3px solid #E2E8F0;
+      border-top-color: #DC2626; border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    iframe {
+      position: fixed; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+    <span>Memuat P.R.I.M.A...</span>
+  </div>
+
+  <iframe
+    id="primaFrame"
+    src="https://script.google.com/macros/s/AKfycbxclAa6OGy1T3uAmgye3ZWt91eOW6HUTyz-x79JxnAoYNZGlClBok8I7Kaz44VSFSqHKQ/exec"
+    allow="geolocation; clipboard-write; camera"
+    allowfullscreen
+    onload="document.getElementById('loader').style.opacity='0'; setTimeout(() => document.getElementById('loader').remove(), 260);"
+  ></iframe>
+</body>
+</html>
